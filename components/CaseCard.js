@@ -19,7 +19,7 @@ export default function CaseCard({ study }) {
           <p>project takes {time} weeks to finish.</p>
         </div>
         <div className="actions">
-          <Link href={"/recipes/" + slug}>
+          <Link href={"/designs/" + slug}>
             <a>check this</a>
           </Link>
         </div>

@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Navbar from "./Navigation";
 
 export default function Layout({ children }) {
   return (
     <div className="layout">
+      <Navbar />
       <header>
         <Link href="/">
           <a>
