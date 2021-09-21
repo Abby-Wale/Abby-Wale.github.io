@@ -1,7 +1,6 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
-import Preview from "preview-office-docs";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
