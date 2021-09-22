@@ -19,7 +19,7 @@ export default function CaseCard({ study }) {
         </div>
         <div className="actions">
           <Link href={"/designs/" + slug}>
-            <a>details</a>
+            <a>view case study</a>
           </Link>
         </div>
       </div>

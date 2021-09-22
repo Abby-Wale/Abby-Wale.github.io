@@ -25,16 +25,12 @@ function Navbar() {
           </RightAnchor>
         </Link>
 
-        {/* <Link href="/design" passHref>
-          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
-            <span>Designs</span>
-          </RightAnchor>
-        </Link> */}
-
         <Link href="AdewaleAbiolaResume.pdf">
-          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
-            <a target="_blank">Resume</a>
-          </RightAnchor>
+          <a target="_blank" rel="noopener noreferrer">
+            <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
+              Resume
+            </RightAnchor>
+          </a>
         </Link>
       </RightNav>
     </Header>
@@ -63,7 +59,9 @@ grid-template-columns: 1fr 1fr;
   list-style-type: none;
   height: ${({ showmenu }) => (showmenu ? "auto" : "0")};
  
-
+a {
+  text-decoration: none;
+}
   @media screen and (min-width: 800px) {
     display: flex; 
     height: auto; 
@@ -76,14 +74,14 @@ export const RightAnchor = styled.a`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 12px;
+  margin: 15px;
   text-decoration: none;
   cursor: pointer;
   color: #064734;
   @media screen and (min-width: 800px) {
     :hover {
       padding-left: 0;
-      border-bottom: 1px solid black;
+      border-bottom: 1px solid #064734;
     }
   }
 `;
