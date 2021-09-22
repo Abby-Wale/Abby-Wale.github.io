@@ -16,32 +16,31 @@ export default function CaseCard({ study }) {
       <div className="content">
         <div className="info">
           <h4>{title}</h4>
-          <p>project takes {time} weeks to finish.</p>
         </div>
         <div className="actions">
           <Link href={"/designs/" + slug}>
-            <a>check this</a>
+            <a>details</a>
           </Link>
         </div>
       </div>
 
       <style jsx>{`
         .card {
-          transform: rotateZ(-1deg);
+          transform: rotateZ(-2deg);
         }
         .content {
           background: #fff;
           box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-          margin: 0;
+          margin: 40px 0;
           position: relative;
           top: -40px;
           left: -10px;
         }
         .info {
-          padding: 16px;
+          padding: 5px;
         }
         .info h4 {
-          margin: 4px 0;
+          margin: 2px 0;
           text-transform: uppercase;
         }
         .info p {
@@ -49,7 +48,7 @@ export default function CaseCard({ study }) {
           color: #777;
         }
         .actions {
-          margin-top: 20px;
+          margin-top: 10px;
           display: flex;
           justify-content: flex-end;
         }

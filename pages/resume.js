@@ -1,3 +1,19 @@
+// import React from "react";
+
+// export default function resume({ study }) {
+//   const { pdfFile } = study.fields;
+//   return (
+//     <div className="resume">
+//       <Image src={"https:" + pdfFile.fields.file.url} />
+
+//       <style jsx>{`
+//         .card {
+//         }
+//       `}</style>
+//     </div>
+//   );
+// }
+
 import React, { useState } from "react";
 
 import { Document, Page, pdfjs } from "react-pdf";
@@ -12,17 +28,24 @@ function resume() {
   }
 
   return (
-    <div>
+    <div className="resume-container">
       <Document
         file="AdewaleAbiolaResume.pdf"
-        size="A4"
         onLoadSuccess={onDocumentLoadSuccess}
+        height="700px"
+        width="100%"
       >
         <Page pageNumber={pageNumber} />
       </Document>
       <p>
         Page {pageNumber} of {numPages}
       </p>
+
+      <style jsx>{`
+        .resume-container {
+          text-align: center;
+        }
+      `}</style>
     </div>
   );
 }

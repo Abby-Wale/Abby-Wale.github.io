@@ -11,7 +11,7 @@ function Navbar() {
       <LeftNav>
         <Link href="/" passHref>
           <LeftAnchor onClick={() => updateShowmenu(!showmenu)}>
-            <span>ABIOLA</span>
+            <span>Home</span>
           </LeftAnchor>
         </Link>
         <button onClick={() => updateShowmenu(!showmenu)}>
@@ -31,9 +31,9 @@ function Navbar() {
           </RightAnchor>
         </Link> */}
 
-        <Link href="/resume" passHref>
+        <Link href="AdewaleAbiolaResume.pdf">
           <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
-            <span>Resume</span>
+            <a target="_blank">Resume</a>
           </RightAnchor>
         </Link>
       </RightNav>

@@ -25,9 +25,9 @@ const AboutPage = () => {
             <li>👉 Adobe XD</li>
           </ul>
           Other than spending time on computer, I also enjoy playing console
-          games like football and some adventures. I am a scrabble expert. When
-          I don't go for a walk in the evening, I ride my bike or spend time
-          time chilling with friends.
+          games like FIFA and some adventures. I am a scrabble expert. When I
+          don't go for a walk in the evening, I ride my bike or spend time time
+          chilling with friends.
         </p>
       </Section>
     </Main>

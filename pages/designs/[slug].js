@@ -1,6 +1,7 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
+import Preview from "preview-office-docs";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -42,14 +43,16 @@ export default function StudyDetails({ study }) {
   return (
     <div>
       <div className="banner">
-        <Image
-          src={"https:" + featuredImage.fields.file.url}
-          width={featuredImage.fields.file.details.image.width}
-          height={featuredImage.fields.file.details.image.height}
+        <div className="head2">
+          <h2>{title}</h2>
+        </div>
+        <Preview
+          url={"https:" + featuredImage.fields.file.url}
+          height="700px"
+          width="100%"
         />
-        <h2>{title}</h2>
       </div>
-
+      {/* 
       <div className="info">
         <p>Takes about {time} weeks to finish.</p>
         <h3>Data:</h3>
@@ -60,25 +63,32 @@ export default function StudyDetails({ study }) {
       </div>
 
       <div className="method">
-        <h3>Method:</h3>
-        <div>{documentToReactComponents(method)}</div>
-      </div>
+        <h3>Design Prototype</h3>
+        <p>
+          please check out the design prototype{" "}
+          <a href={documentToReactComponents(method)}>here</a>
+        </p>
+      </div> */}
 
       <style jsx>{`
         h2,
         h3 {
           text-transform: uppercase;
         }
-        .banner h2 {
-          margin: 0;
-          background: #fff;
+        .method {
+          color: #fff;
+        }
+        .head2 {
+          background: red;
           display: inline-block;
-          padding: 20px;
-          position: relative;
-          top: -60px;
-          left: -10px;
-          transform: rotateZ(-1deg);
+          padding: 10px;
+          margin: 10px;
+          transform: rotateZ(-2deg);
           box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+          color: #fff;
+        }
+        .banner {
+          text-align: center;
         }
         .info p {
           margin: 0;
