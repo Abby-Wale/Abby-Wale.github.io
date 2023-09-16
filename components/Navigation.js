@@ -9,28 +9,25 @@ function Navbar() {
   return (
     <Header>
       <LeftNav>
-        <Link href="/" passHref legacyBehavior>
-          <LeftAnchor onClick={() => updateShowmenu(!showmenu)}>
+        <Link href="/" passHref>
+          <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
             <span>Home</span>
-          </LeftAnchor>
+          </StyledDiv>
         </Link>
         <button onClick={() => updateShowmenu(!showmenu)}>
           {showmenu ? <FaTimes /> : <FaBars />}
         </button>
       </LeftNav>
       <RightNav showmenu={showmenu}>
-        <Link href="/about" passHref legacyBehavior>
-          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
+        <Link href="/about" passHref>
+          <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
             <span>About</span>
-          </RightAnchor>
+          </StyledDiv>
         </Link>
-
-        <Link href="AdewaleAbiolaResume.pdf" target="_blank" rel="noopener noreferrer">
-
-          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
+        <Link href="/AdewaleAbiolaResume.pdf" passHref>
+          <StyledDiv target="_blank" rel="noopener noreferrer" onClick={() => updateShowmenu(!showmenu)}>
             Resume
-          </RightAnchor>
-
+          </StyledDiv>
         </Link>
       </RightNav>
     </Header>
@@ -39,7 +36,8 @@ function Navbar() {
 
 export default Navbar;
 
-export const Header = styled.div`
+const Header = styled.div`
+  /* styles */
   margin: 0;
   padding: 1rem;
   display: flex;
@@ -52,41 +50,8 @@ export const Header = styled.div`
   }
 `;
 
-export const RightNav = styled.div`
-display: grid;
-grid-template-columns: 1fr 1fr; 
-  overflow: hidden;
-  list-style-type: none;
-  height: ${({ showmenu }) => (showmenu ? "auto" : "0")};
- 
-a {
-  text-decoration: none;
-}
-  @media screen and (min-width: 800px) {
-    display: flex; 
-    height: auto; 
- `;
-
-export const RightAnchor = styled.a`
-  font-size: 20px;
-  letter-spacing: 0.1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 15px;
-  text-decoration: none;
-  cursor: pointer;
-  color: #064734;
-  @media screen and (min-width: 800px) {
-    :hover {
-      padding-left: 0;
-      border-bottom: 1px solid #064734;
-    }
-  }
-`;
-
-export const LeftNav = styled.div`
+const LeftNav = styled.div`
+  /* styles */
   display: flex;
   justify-content: space-between;
   button {
@@ -101,22 +66,38 @@ export const LeftNav = styled.div`
   }
 `;
 
-export const LeftAnchor = styled.a`
-  color: #000;
-  margin-right: auto;
+const RightNav = styled.div`
+  /* styles */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  list-style-type: none;
+  height: ${({ showmenu }) => (showmenu ? "auto" : "0")};
+  a {
+    text-decoration: none;
+  }
+  @media screen and (min-width: 800px) {
+    display: flex;
+    height: auto;
+  }
+`;
+
+const StyledDiv = styled.div`
+  /* styles */
+  font-size: 20px;
+  letter-spacing: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
   text-decoration: none;
   cursor: pointer;
   color: #064734;
-  // span {
-  //   visibility: hidden;
-  // }
   @media screen and (min-width: 800px) {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    span {
-      visibility: visible;
+    :hover {
+      padding-left: 0;
+      border-bottom: 1px solid #064734;
     }
   }
 `;
