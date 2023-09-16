@@ -1,7 +1,12 @@
+
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+
 export default function CaseCard({ study }) {
-  const { title, slug, thumbnail } = study.fields;
-  const scaledWidth = thumbnail.fields.file.details.image.width * 0.35;
-  const scaledHeight = thumbnail.fields.file.details.image.height * 0.35;
+  const { title, slug, time, thumbnail } = study.fields;
+  const scaledWidth = thumbnail.fields.file.details.image.width * 0.35;  // 50% reduction
+  const scaledHeight = thumbnail.fields.file.details.image.height * 0.35; // 50% reduction
   
   return (
     <div className="card">
@@ -17,15 +22,23 @@ export default function CaseCard({ study }) {
           <h4>{title}</h4>
         </div>
         <div className="actions">
-          <Link href={"/designs/" + slug} passHref>
+          <Link href={"/designs/" + slug} passHref legacyBehavior>
             <a>view</a>
           </Link>
         </div>
       </div>
+
       <style jsx>{`
         .card {
-          width: 100%; // Occupies full width of parent container
-          margin: 10px 0; // Vertical margin to separate cards
+          transform: rotateZ(-2deg);
+          width: 100%;  // 50% reduction
+          margin: 10px 0;  // Center the card and reduce margin
+        }
+        @media (max-width: 768px) {
+          .card {
+            width: 100%;  // Single column on smaller screens
+            margin: 10px 0;
+          }
         }
         .content {
           background: #fff;
@@ -59,63 +72,4 @@ export default function CaseCard({ study }) {
 }
 
 
-// export default function CaseCard({ study }) {
-//   const { title, slug, time, thumbnail } = study.fields;
-//   return (
-//     <div className="card">
-//       <div className="featured">
-//         <Image
-//           src={"https:" + thumbnail.fields.file.url}
-//           width={thumbnail.fields.file.details.image.width}
-//           height={thumbnail.fields.file.details.image.height}
-//         />
-//       </div>
-//       <div className="content">
-//         <div className="info">
-//           <h4>{title}</h4>
-//         </div>
-//         <div className="actions">
-//           <Link href={"/designs/" + slug} legacyBehavior>
-//             <a>view</a>
-//           </Link>
-//         </div>
-//       </div>
 
-//       <style jsx>{`
-//         .card {
-//           transform: rotateZ(-2deg);
-//         }
-//         .content {
-//           background: #fff;
-//           box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-//           margin: 40px 0;
-//           position: relative;
-//           top: -40px;
-//           left: -10px;
-//         }
-//         .info {
-//           padding: 5px;
-//         }
-//         .info h4 {
-//           margin: 2px 0;
-//           text-transform: uppercase;
-//         }
-//         .info p {
-//           margin: 0;
-//           color: #777;
-//         }
-//         .actions {
-//           margin-top: 10px;
-//           display: flex;
-//           justify-content: flex-end;
-//         }
-//         .actions a {
-//           color: #fff;
-//           background: #f01b29;
-//           padding: 16px 24px;
-//           text-decoration: none;
-//         }
-//       `}</style>
-//     </div>
-//   );
-// }

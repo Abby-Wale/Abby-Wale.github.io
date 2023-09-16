@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <Header>
       <LeftNav>
-        <Link href="/about" passHref legacyBehavior>
+        <Link href="/about" passHref>
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
             <span>About</span>
           </StyledDiv>
@@ -19,7 +19,7 @@ function Navbar() {
         </button>
       </LeftNav>
       <RightNav showmenu={showmenu}>
-        <Link href="/" passHref legacyBehavior>
+        <Link href="/" passHref>
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
             <span>Projects</span>
           </StyledDiv>
@@ -27,7 +27,6 @@ function Navbar() {
         <a href="/Abiola Adewale Resume.pdf" target="_blank" rel="noopener noreferrer">
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>Resume</StyledDiv>
         </a>
-
       </RightNav>
     </Header>
   );
@@ -35,10 +34,7 @@ function Navbar() {
 
 export default Navbar;
 
-
-
 const Header = styled.div`
-  /* styles */
   margin: 0;
   padding: 1rem;
   display: flex;
@@ -46,20 +42,19 @@ const Header = styled.div`
   flex-direction: column;
   background-color: white;
   color: #064734;
-  @media screen and (min-width: 800px) {
+  @media (min-width: 800px) {
     flex-direction: row;
   }
 `;
 
 const LeftNav = styled.div`
-  /* styles */
   display: flex;
   justify-content: space-between;
   button {
     background: transparent;
-    border-color: transparent;
+    border: none;
   }
-  @media screen and (min-width: 800px) {
+  @media (min-width: 800px) {
     justify-content: flex-end;
     button {
       display: none;
@@ -68,23 +63,21 @@ const LeftNav = styled.div`
 `;
 
 const RightNav = styled.div`
-  /* styles */
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: ${props => (props.showmenu ? 'flex' : 'none')};
+  flex-direction: column;
   overflow: hidden;
   list-style-type: none;
-  height: ${({ showmenu }) => (showmenu ? "auto" : "0")};
   a {
     text-decoration: none;
   }
-  @media screen and (min-width: 800px) {
+  @media (min-width: 800px) {
     display: flex;
+    flex-direction: row;
     height: auto;
   }
 `;
 
 const StyledDiv = styled.div`
-  /* styles */
   font-size: 20px;
   letter-spacing: 0.1rem;
   display: flex;
@@ -95,7 +88,7 @@ const StyledDiv = styled.div`
   text-decoration: none;
   cursor: pointer;
   color: #064734;
-  @media screen and (min-width: 800px) {
+  @media (min-width: 800px) {
     :hover {
       padding-left: 0;
       border-bottom: 1px solid #064734;
