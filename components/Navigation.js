@@ -10,9 +10,7 @@ function Navbar() {
     <Header>
       <LeftNav>
         <Link href="/" passHref>
-          <LeftAnchor onClick={() => updateShowmenu(!showmenu)}>
-            <span>Home</span>
-          </LeftAnchor>
+          <LeftAnchor onClick={() => updateShowmenu(!showmenu)}>Home</LeftAnchor>
         </Link>
         <button onClick={() => updateShowmenu(!showmenu)}>
           {showmenu ? <FaTimes /> : <FaBars />}
@@ -20,24 +18,18 @@ function Navbar() {
       </LeftNav>
       <RightNav showmenu={showmenu}>
         <Link href="/about" passHref>
-          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
-            <span>About</span>
-          </RightAnchor>
+          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>About</RightAnchor>
         </Link>
-
-        <Link href="AdewaleAbiolaResume.pdf" legacyBehavior>
-          <a target="_blank" rel="noopener noreferrer">
-            <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
-              Resume
-            </RightAnchor>
-          </a>
-        </Link>
+        <a href="/AdewaleAbiolaResume.pdf" target="_blank" rel="noopener noreferrer">
+          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>Resume</RightAnchor>
+        </a>
       </RightNav>
     </Header>
   );
 }
 
 export default Navbar;
+
 
 export const Header = styled.div`
   margin: 0;
