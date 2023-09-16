@@ -30,7 +30,7 @@ function resume() {
   return (
     <div className="resume-container">
       <Document
-        file="AdewaleAbiolaResume.pdf"
+        file="Abiola Adewale Resume.pdf"
         onLoadSuccess={onDocumentLoadSuccess}
         height="700px"
         width="100%"

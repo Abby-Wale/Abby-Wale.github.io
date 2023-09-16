@@ -1,7 +1,6 @@
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Image from "next/image";
-import Preview from "preview-office-docs";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -9,48 +8,54 @@ const client = createClient({
 });
 
 export const getStaticPaths = async () => {
-  const res = await client.getEntries({
-    content_type: "caseStudy",
-  });
-
-  const paths = res.items.map((item) => {
+  try {
+    const res = await client.getEntries({
+      content_type: "caseStudy",
+    });
+    const paths = res.items.map((item) => {
+      return {
+        params: { slug: item.fields.slug },
+      };
+    });
     return {
-      params: { slug: item.fields.slug },
+      paths,
+      fallback: false,
     };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 };
 
 export const getStaticProps = async ({ params }) => {
-  const { items } = await client.getEntries({
-    content_type: "caseStudy",
-    "fields.slug": params.slug,
-  });
-
-  return {
-    props: { study: items[0] },
-  };
+  try {
+    const { items } = await client.getEntries({
+      content_type: "caseStudy",
+      "fields.slug": params.slug,
+    });
+    return {
+      props: { study: items[0] },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 };
 
 export default function StudyDetails({ study }) {
   const { featuredImage, title, time, caseStudyData, method } = study.fields;
-  console.log(study);
-
+  const docUrl = `https://docs.google.com/viewer?url=https:${featuredImage.fields.file.url}&embedded=true`;
+  
   return (
     <div>
       <div className="banner">
         <div className="head2">
           <h2>{title}</h2>
         </div>
-        <Preview
-          url={"https:" + featuredImage.fields.file.url}
-          height="700px"
-          width="100%"
-        />
+        <iframe 
+          src={docUrl} 
+          style={{height: '700px', width: '100%'}}
+          frameBorder="0"
+        >
+        </iframe>
       </div>
       {/* 
       <div className="info">

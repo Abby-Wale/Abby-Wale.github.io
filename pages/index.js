@@ -3,22 +3,23 @@ import CaseCard from "../components/CaseCard";
 
 export async function getStaticProps() {
   const client = createClient({
-    space: "l77qha1voe0c",
-    accessToken: "l_DgqUQDUPFySs6W0Av6c9qTbQU-X5vRxDEIRfQMfTU",
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
   });
 
-  const res = await client.getEntries({ content_type: "caseStudy" });
-
-  return {
-    props: {
-      studies: res.items,
-    },
-  };
+  try {
+    const res = await client.getEntries({ content_type: "caseStudy" });
+    return {
+      props: {
+        studies: res.items,
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+  }
 }
 
 export default function Recipes({ studies }) {
-  console.log(studies);
-
   return (
     <div className="recipe-list">
       {studies.map((study) => (

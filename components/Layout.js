@@ -8,13 +8,14 @@ export default function Layout({ children }) {
     <div className="layout">
       <Navbar />
       <header>
-        <Link href="/" passHref>
+        
 
           <h1>
-            <span>Data Scientist and AI Engineer</span>
+            <span>Data Scientist & AI Engineer</span>
+            <span>Bridging Data to Actionable Insights</span>
           </h1>
 
-        </Link>
+
       </header>
 
       <div className="page-content">
@@ -32,13 +33,10 @@ export default function Layout({ children }) {
           <SocialIcon href="https://www.linkedin.com/in/waleabiola/" target="_blank" rel="noopener noreferrer">
             <FaLinkedinIn color="#fff" />
           </SocialIcon>
-        </Footer1>
-        <Footer2>
-          whatsapp contact:
           <SocialIcon href="https://wa.me/447405263938" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp color="#fff" />
           </SocialIcon>
-        </Footer2>
+        </Footer1>
       </Footer>
     </div>
   );
@@ -66,15 +64,15 @@ export const Footer1 = styled.div`
   }
 `;
 
-export const Footer2 = styled.div`
-  text-align: center;
-  padding: 10px 0;
-  color: #fff;
-  a {
-    text-decoration: none;
-    font-size: 25px;
-  }
-`;
+// export const Footer2 = styled.div`
+//   text-align: center;
+//   padding: 10px 0;
+//   color: #fff;
+//   a {
+//     text-decoration: none;
+//     font-size: 25px;
+//   }
+// `;
 
 export const SocialIcon = styled.a`
   text-decoration: none;
