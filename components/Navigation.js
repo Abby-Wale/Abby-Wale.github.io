@@ -24,9 +24,10 @@ function Navbar() {
             <span>Projects</span>
           </StyledDiv>
         </Link>
-        <Link href="/Abiola Adewale Resume.pdf" target="_blank" rel="noopener noreferrer" passHref>
+        <a href="/Abiola Adewale Resume.pdf" target="_blank" rel="noopener noreferrer">
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>Resume</StyledDiv>
-        </Link>
+        </a>
+
       </RightNav>
     </Header>
   );
