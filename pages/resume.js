@@ -1,25 +1,8 @@
-// import React from "react";
-
-// export default function resume({ study }) {
-//   const { pdfFile } = study.fields;
-//   return (
-//     <div className="resume">
-//       <Image src={"https:" + pdfFile.fields.file.url} />
-
-//       <style jsx>{`
-//         .card {
-//         }
-//       `}</style>
-//     </div>
-//   );
-// }
-
 import React, { useState } from "react";
-
 import { Document, Page, pdfjs } from "react-pdf";
 pdfjs.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-function resume() {
+function Resume() {
   const [numPages, setNumPages] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
 
@@ -29,11 +12,12 @@ function resume() {
 
   return (
     <div className="resume-container">
+      <a href="AdewaleAbiolaResume.pdf" target="_blank" rel="noopener noreferrer">
+        Open PDF in new tab
+      </a>
       <Document
-        file="Abiola Adewale Resume.pdf"
+        file="AdewaleAbiolaResume.pdf"
         onLoadSuccess={onDocumentLoadSuccess}
-        height="700px"
-        width="100%"
       >
         <Page pageNumber={pageNumber} />
       </Document>
@@ -49,4 +33,5 @@ function resume() {
     </div>
   );
 }
-export default resume;
+
+export default Resume;
