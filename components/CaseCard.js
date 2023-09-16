@@ -1,12 +1,7 @@
-
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-
 export default function CaseCard({ study }) {
-  const { title, slug, time, thumbnail } = study.fields;
-  const scaledWidth = thumbnail.fields.file.details.image.width * 0.35;  // 50% reduction
-  const scaledHeight = thumbnail.fields.file.details.image.height * 0.35; // 50% reduction
+  const { title, slug, thumbnail } = study.fields;
+  const scaledWidth = thumbnail.fields.file.details.image.width * 0.35;
+  const scaledHeight = thumbnail.fields.file.details.image.height * 0.35;
   
   return (
     <div className="card">
@@ -22,17 +17,15 @@ export default function CaseCard({ study }) {
           <h4>{title}</h4>
         </div>
         <div className="actions">
-          <Link href={"/designs/" + slug} passHref legacyBehavior>
+          <Link href={"/designs/" + slug} passHref>
             <a>view</a>
           </Link>
         </div>
       </div>
-
       <style jsx>{`
         .card {
-          transform: rotateZ(-2deg);
-          width: 50%;  // 50% reduction
-          margin: 10px 10px;  // Center the card and reduce margin
+          width: 100%; // Occupies full width of parent container
+          margin: 10px 0; // Vertical margin to separate cards
         }
         .content {
           background: #fff;
