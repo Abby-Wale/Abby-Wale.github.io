@@ -1,11 +1,38 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import styled from "@emotion/styled";
+
+const Card = styled.div`transform: rotateZ(-2deg);`;
+const Content = styled.div`
+  background: #fff;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+  margin: 40px 0;
+  position: relative;
+  top: -40px;
+  left: -10px;
+`;
+const Info = styled.div`padding: 5px;`;
+const InfoH4 = styled.h4`
+  margin: 2px 0;
+  text-transform: uppercase;
+`;
+const Actions = styled.div`
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+`;
+const ActionsA = styled.a`
+  color: #fff;
+  background: #f01b29;
+  padding: 16px 24px;
+  text-decoration: none;
+`;
 
 export default function CaseCard({ study }) {
-  const { title, slug, time, thumbnail } = study.fields;
+  const { title, slug, thumbnail } = study.fields;
   return (
-    <div className="card">
+    <Card>
       <div className="featured">
         <Image
           src={"https:" + thumbnail.fields.file.url}
@@ -13,52 +40,16 @@ export default function CaseCard({ study }) {
           height={thumbnail.fields.file.details.image.height}
         />
       </div>
-      <div className="content">
-        <div className="info">
-          <h4>{title}</h4>
-        </div>
-        <div className="actions">
+      <Content>
+        <Info>
+          <InfoH4>{title}</InfoH4>
+        </Info>
+        <Actions>
           <Link href={"/designs/" + slug} passHref>
-            <a>view case study</a>
+            <ActionsA>view case study</ActionsA>
           </Link>
-        </div>
-      </div>
-
-      <style jsx>{`
-        .card {
-          transform: rotateZ(-2deg);
-        }
-        .content {
-          background: #fff;
-          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-          margin: 40px 0;
-          position: relative;
-          top: -40px;
-          left: -10px;
-        }
-        .info {
-          padding: 5px;
-        }
-        .info h4 {
-          margin: 2px 0;
-          text-transform: uppercase;
-        }
-        .info p {
-          margin: 0;
-          color: #777;
-        }
-        .actions {
-          margin-top: 10px;
-          display: flex;
-          justify-content: flex-end;
-        }
-        .actions a {
-          color: #fff;
-          background: #f01b29;
-          padding: 16px 24px;
-          text-decoration: none;
-        }
-      `}</style>
-    </div>
+        </Actions>
+      </Content>
+    </Card>
   );
 }
