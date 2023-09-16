@@ -1,11 +1,12 @@
+
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function CaseCard({ study }) {
   const { title, slug, time, thumbnail } = study.fields;
-  const scaledWidth = thumbnail.fields.file.details.image.width * 0.75;
-  const scaledHeight = thumbnail.fields.file.details.image.height * 0.75;
+  const scaledWidth = thumbnail.fields.file.details.image.width * 0.5;  // 50% reduction
+  const scaledHeight = thumbnail.fields.file.details.image.height * 0.5; // 50% reduction
   
   return (
     <div className="card">
@@ -30,44 +31,39 @@ export default function CaseCard({ study }) {
       <style jsx>{`
         .card {
           transform: rotateZ(-2deg);
-          width: 100%; /* Full-width to occupy one row */
-          margin-bottom: 20px; /* Some margin to separate the cards */
+          width: 50%;  // 50% reduction
+          margin: 10px auto;  // Center the card and reduce margin
         }
         .content {
           background: #fff;
           box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-          margin: 30px 0;
+          margin: 15px 0;  // 50% reduction
           position: relative;
-          top: -30px;
-          left: -7.5px;
+          top: -15px;  // 50% reduction
+          left: -3.75px;  // 50% reduction
         }
         .info {
-          padding: 3.75px;
+          padding: 1.875px;  // 50% reduction
         }
         .info h4 {
-          margin: 1.5px 0;
+          margin: 0.75px 0;  // 50% reduction
           text-transform: uppercase;
         }
-        .info p {
-          margin: 0;
-          color: #777;
-        }
         .actions {
-          margin-top: 7.5px;
+          margin-top: 3.75px;  // 50% reduction
           display: flex;
           justify-content: flex-end;
         }
         .actions a {
           color: #fff;
           background: #f01b29;
-          padding: 12px 18px;
+          padding: 6px 9px;  // 50% reduction
           text-decoration: none;
         }
       `}</style>
     </div>
   );
 }
-
 
 
 // export default function CaseCard({ study }) {

@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <Header>
       <LeftNav>
-        <Link href="/about" passHref>
+        <Link href="/about" passHref legacyBehavior>
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
             <span>About</span>
           </StyledDiv>
@@ -19,7 +19,7 @@ function Navbar() {
         </button>
       </LeftNav>
       <RightNav showmenu={showmenu}>
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
             <span>Projects</span>
           </StyledDiv>
