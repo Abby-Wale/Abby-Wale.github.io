@@ -9,9 +9,9 @@ function Navbar() {
   return (
     <Header>
       <LeftNav>
-        <Link href="/" passHref legacyBehavior>
+        <Link href="/about" passHref>
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
-            <span>Home</span>
+            <span>About</span>
           </StyledDiv>
         </Link>
         <button onClick={() => updateShowmenu(!showmenu)}>
@@ -19,22 +19,24 @@ function Navbar() {
         </button>
       </LeftNav>
       <RightNav showmenu={showmenu}>
-        <Link href="/about" passHref legacyBehavior>
+        <Link href="/" passHref>
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
-            <span>About</span>
+            <span>Projects</span>
           </StyledDiv>
         </Link>
-        <Link href="/AdewaleAbiolaResume.pdf" passHref legacyBehavior>
-          <StyledDiv target="_blank" rel="noopener noreferrer" onClick={() => updateShowmenu(!showmenu)}>
-            Resume
-          </StyledDiv>
-        </Link>
+        <a href="/Abiola Adewale Resume.pdf" target="_blank" rel="noopener noreferrer">
+          <StyledDiv onClick={() => updateShowmenu(!showmenu)}>Resume</StyledDiv>
+        </a>
       </RightNav>
     </Header>
   );
 }
 
 export default Navbar;
+
+// ... (your styled components remain the same)
+
+
 
 const Header = styled.div`
   /* styles */
