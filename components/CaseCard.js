@@ -5,8 +5,8 @@ import Image from "next/image";
 
 export default function CaseCard({ study }) {
   const { title, slug, time, thumbnail } = study.fields;
-  const scaledWidth = thumbnail.fields.file.details.image.width * 0.5;  // 50% reduction
-  const scaledHeight = thumbnail.fields.file.details.image.height * 0.5; // 50% reduction
+  const scaledWidth = thumbnail.fields.file.details.image.width * 0.35;  // 50% reduction
+  const scaledHeight = thumbnail.fields.file.details.image.height * 0.35; // 50% reduction
   
   return (
     <div className="card">
@@ -22,7 +22,7 @@ export default function CaseCard({ study }) {
           <h4>{title}</h4>
         </div>
         <div className="actions">
-          <Link href={"/designs/" + slug} passHref>
+          <Link href={"/designs/" + slug} passHref legacyBehavior>
             <a>view</a>
           </Link>
         </div>
@@ -32,7 +32,7 @@ export default function CaseCard({ study }) {
         .card {
           transform: rotateZ(-2deg);
           width: 50%;  // 50% reduction
-          margin: 10px auto;  // Center the card and reduce margin
+          margin: 10px 10px;  // Center the card and reduce margin
         }
         .content {
           background: #fff;
