@@ -68,18 +68,39 @@ export const StyledDiv = styled.div`
   }
 `;
 
+
+
 export const RightNav = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+display: grid;
+grid-template-columns: 1fr 1fr; 
   overflow: hidden;
   list-style-type: none;
   height: ${({ showmenu }) => (showmenu ? "auto" : "0")};
-  div {
-    text-decoration: none;
-  }
+ 
+a {
+  text-decoration: none;
+}
   @media screen and (min-width: 800px) {
-    display: flex;
-    height: auto;
+    display: flex; 
+    height: auto; 
+ `;
+
+export const RightAnchor = styled.a`
+  font-size: 20px;
+  letter-spacing: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  color: #064734;
+  @media screen and (min-width: 800px) {
+    :hover {
+      padding-left: 0;
+      border-bottom: 1px solid #064734;
+    }
   }
 `;
 
@@ -94,6 +115,26 @@ export const LeftNav = styled.div`
     justify-content: flex-end;
     button {
       display: none;
+    }
+  }
+`;
+
+export const LeftAnchor = styled.a`
+  color: #000;
+  margin-right: auto;
+  text-decoration: none;
+  cursor: pointer;
+  color: #064734;
+  // span {
+  //   visibility: hidden;
+  // }
+  @media screen and (min-width: 800px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    span {
+      visibility: visible;
     }
   }
 `;
