@@ -35,8 +35,6 @@ function Navbar() {
 
 export default Navbar;
 
-// ... (your styled components remain the same)
-
 
 
 const Header = styled.div`
