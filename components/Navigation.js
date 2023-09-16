@@ -9,7 +9,7 @@ function Navbar() {
   return (
     <Header>
       <LeftNav>
-        <Link href="/" passHref>
+        <Link href="/" passHref legacyBehavior>
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
             <span>Home</span>
           </StyledDiv>
@@ -19,12 +19,12 @@ function Navbar() {
         </button>
       </LeftNav>
       <RightNav showmenu={showmenu}>
-        <Link href="/about" passHref>
+        <Link href="/about" passHref legacyBehavior>
           <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
             <span>About</span>
           </StyledDiv>
         </Link>
-        <Link href="/AdewaleAbiolaResume.pdf" passHref>
+        <Link href="/AdewaleAbiolaResume.pdf" passHref legacyBehavior>
           <StyledDiv target="_blank" rel="noopener noreferrer" onClick={() => updateShowmenu(!showmenu)}>
             Resume
           </StyledDiv>

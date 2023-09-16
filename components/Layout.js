@@ -9,11 +9,11 @@ export default function Layout({ children }) {
       <Navbar />
       <header>
         <Link href="/" passHref>
-          <a>
-            <h1>
-              <span>Data Scientist and AI Engineer</span>
-            </h1>
-          </a>
+
+          <h1>
+            <span>Data Scientist and AI Engineer</span>
+          </h1>
+
         </Link>
       </header>
 
