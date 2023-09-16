@@ -35,7 +35,7 @@ export default function Layout({ children }) {
         </Footer1>
         <Footer2>
           whatsapp contact:
-          <SocialIcon href="https://wa.me/4915217431500" target="_blank" rel="noopener noreferrer">
+          <SocialIcon href="https://wa.me/447405263938" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp color="#fff" />
           </SocialIcon>
         </Footer2>
