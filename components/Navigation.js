@@ -10,7 +10,9 @@ function Navbar() {
     <Header>
       <LeftNav>
         <Link href="/" passHref>
-          <LeftAnchor onClick={() => updateShowmenu(!showmenu)}>Home</LeftAnchor>
+          <LeftAnchor onClick={() => updateShowmenu(!showmenu)}>
+            <span>Home</span>
+          </LeftAnchor>
         </Link>
         <button onClick={() => updateShowmenu(!showmenu)}>
           {showmenu ? <FaTimes /> : <FaBars />}
@@ -18,23 +20,24 @@ function Navbar() {
       </LeftNav>
       <RightNav showmenu={showmenu}>
         <Link href="/about" passHref>
-          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>About</RightAnchor>
+          <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
+            <span>About</span>
+          </RightAnchor>
         </Link>
-        <RightAnchor 
-          onClick={() => { 
-            updateShowmenu(!showmenu);
-            window.open("/AdewaleAbiolaResume.pdf", "_blank", "noopener,noreferrer");
-          }}
-        >
-          Resume
-        </RightAnchor>
+
+        <Link href="AdewaleAbiolaResume.pdf">
+          <a target="_blank" rel="noopener noreferrer">
+            <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
+              Resume
+            </RightAnchor>
+          </a>
+        </Link>
       </RightNav>
     </Header>
   );
 }
 
 export default Navbar;
-
 
 export const Header = styled.div`
   margin: 0;
@@ -48,27 +51,6 @@ export const Header = styled.div`
     flex-direction: row;
   }
 `;
-
-export const StyledDiv = styled.div`
-  font-size: 20px;
-  letter-spacing: 0.1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 15px;
-  text-decoration: none;
-  cursor: pointer;
-  color: #064734;
-  @media screen and (min-width: 800px) {
-    :hover {
-      padding-left: 0;
-      border-bottom: 1px solid #064734;
-    }
-  }
-`;
-
-
 
 export const RightNav = styled.div`
 display: grid;
