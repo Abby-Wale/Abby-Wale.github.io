@@ -9,13 +9,13 @@ export default function Layout({ children }) {
       <Navbar />
       <header>
         <Link href="/">
-          <a>
-            <h1>
-              <span>User Experience</span>
-              <span>Design</span>
-            </h1>
-            {/* <h3>enjoy it</h3> */}
-          </a>
+
+          <h1>
+            <span>User Experience</span>
+            <span>Design</span>
+          </h1>
+          {/* <h3>enjoy it</h3> */}
+
         </Link>
       </header>
 
