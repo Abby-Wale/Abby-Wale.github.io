@@ -18,7 +18,7 @@ export default function CaseCard({ study }) {
           <h4>{title}</h4>
         </div>
         <div className="actions">
-          <Link href={"/designs/" + slug}>
+          <Link href={"/designs/" + slug} passHref>
             <a>view case study</a>
           </Link>
         </div>
