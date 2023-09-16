@@ -25,7 +25,7 @@ function Navbar() {
           </RightAnchor>
         </Link>
 
-        <Link href="AdewaleAbiolaResume.pdf">
+        <Link href="AdewaleAbiolaResume.pdf" legacyBehavior>
           <a target="_blank" rel="noopener noreferrer">
             <RightAnchor onClick={() => updateShowmenu(!showmenu)}>
               Resume
@@ -53,19 +53,19 @@ export const Header = styled.div`
 `;
 
 export const RightNav = styled.div`
-display: grid;
-grid-template-columns: 1fr 1fr; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   overflow: hidden;
   list-style-type: none;
   height: ${({ showmenu }) => (showmenu ? "auto" : "0")};
- 
-a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
   @media screen and (min-width: 800px) {
-    display: flex; 
-    height: auto; 
- `;
+    display: flex;
+    height: auto;
+  }
+`;
 
 export const RightAnchor = styled.a`
   font-size: 20px;
@@ -107,16 +107,10 @@ export const LeftAnchor = styled.a`
   text-decoration: none;
   cursor: pointer;
   color: #064734;
-  // span {
-  //   visibility: hidden;
-  // }
   @media screen and (min-width: 800px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    span {
-      visibility: visible;
-    }
   }
 `;
