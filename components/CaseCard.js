@@ -1,19 +1,21 @@
-
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 export default function CaseCard({ study }) {
   const { title, slug, time, thumbnail } = study.fields;
-  const scaledWidth = thumbnail.fields.file.details.image.width * 0.35;  
-  const scaledHeight = thumbnail.fields.file.details.image.height * 0.35; 
+
+  // Fixed dimensions for the image
+  const fixedWidth = 300;
+  const fixedHeight = 200;
+
   return (
     <div className="card">
       <div className="featured">
         <Image
           src={"https:" + thumbnail.fields.file.url}
-          width={scaledWidth}
-          height={scaledHeight}
+          width={fixedWidth}
+          height={fixedHeight}
         />
       </div>
       <div className="content">
@@ -28,57 +30,62 @@ export default function CaseCard({ study }) {
       </div>
 
       <style jsx>{`
-        .card {
-          transform: rotateZ(-2deg);
-          margin: 10px auto;
-        }
+  .card {
+    width: calc(100% - 20px);  // For mobile screens
+    transform: rotateZ(-2deg);
+    margin: 10px auto;  // Centers horizontally
+  }
 
-        @media (max-width: 768px) {
-          .card {
-            margin: 10px auto;
-          }
-          .card-container {
-            padding-left: 50px;
-            padding-right: 50px;
-          }
-        }
+  @media (min-width: 769px) {  // Media query for desktop
+    .card {
+      width: calc(40% - 20px);  // Takes less than half width on desktop minus margins
+      margin: 10px auto;  // Centers horizontally
+    }
+  }
 
-        .card-container {
-          display: flex;
-          flex-wrap: wrap;
-        }
+  .featured, .content {
+    width: 100%;  // Sets the width to be the same as the parent
+  }
 
-        .content {
-          background: #fff;
-          box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-          margin: 15px 0;
-          position: relative;
-          top: -15px;
-          left: -3.75px;
-        }
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  // Centers horizontally
+    align-items: center;  // Centers vertically
+  }
 
-        .info {
-          padding: 1.875px;
-        }
+  .content {
+    background: #fff;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
+    margin: 15px 0;
+    position: relative;
+    top: -15px;
+    left: -3.75px;
+  }
 
-        .info h4 {
-          margin: 0.75px 0;
-          text-transform: uppercase;
-        }
+  .info {
+    padding: 1.875px;
+  }
 
-        .actions {
-          margin-top: 3.75px;
-          display: flex;
-          justify-content: flex-end;
-        }
+  .info h4 {
+    margin: 0.75px 0;
+    text-transform: uppercase;
+  }
 
-        .actions a {
-          color: #fff;
-          background: #f01b29;
-          padding: 6px 9px;
-          text-decoration: none;
-        }
-      `}</style>
+  .actions {
+    margin-top: 3.75px;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .actions a {
+    color: #fff;
+    background: #f01b29;
+    padding: 6px 9px;
+    text-decoration: none;
+  }
+`}</style>
+
     </div>
   );
 }
