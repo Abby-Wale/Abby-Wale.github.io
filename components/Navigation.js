@@ -1,17 +1,43 @@
 import { FaBars, FaTimes } from "react-icons/fa";
 import styled from "@emotion/styled";
-import { useState } from "react";
 import Link from "next/link";
+import { useEffect, useState } from 'react';
 
 function Navbar() {
   const [showmenu, updateShowmenu] = useState(false);
+  const [activePage, setActivePage] = useState("Home");
+  const [isMobile, setIsMobile] = useState(false);  // New state variable
+
+  useEffect(() => {
+    // Set initial value
+    setIsMobile(window.innerWidth <= 768);
+
+    // Attach resize listener
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const handleMenuClick = (pageName) => {
+    if (isMobile) {
+      setActivePage(pageName);
+    }
+    updateShowmenu(!showmenu);
+  };
 
   return (
     <Header>
       <LeftNav>
         <Link href="/about" passHref>
-          <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
-            <span>About</span>
+          <StyledDiv onClick={() => handleMenuClick("Home")}>
+            <span>{isMobile ? activePage : "Home"}</span>
           </StyledDiv>
         </Link>
         <button onClick={() => updateShowmenu(!showmenu)}>
@@ -20,17 +46,19 @@ function Navbar() {
       </LeftNav>
       <RightNav showmenu={showmenu}>
         <Link href="/" passHref>
-          <StyledDiv onClick={() => updateShowmenu(!showmenu)}>
+          <StyledDiv onClick={() => handleMenuClick("Projects")}>
             <span>Projects</span>
           </StyledDiv>
         </Link>
         <a href="/Abiola Adewale Resume.pdf" target="_blank" rel="noopener noreferrer">
-          <StyledDiv onClick={() => updateShowmenu(!showmenu)}>Resume</StyledDiv>
+          <StyledDiv onClick={() => handleMenuClick("Resume")}>Resume</StyledDiv>
         </a>
       </RightNav>
     </Header>
   );
 }
+
+
 
 export default Navbar;
 
@@ -50,6 +78,10 @@ const Header = styled.div`
 const LeftNav = styled.div`
   display: flex;
   justify-content: space-between;
+  list-style-type: none;
+  a {
+    text-decoration: none;
+  }
   button {
     background: transparent;
     border: none;
@@ -65,6 +97,7 @@ const LeftNav = styled.div`
 const RightNav = styled.div`
   display: ${props => (props.showmenu ? 'flex' : 'none')};
   flex-direction: column;
+  align-items: flex-start; // Align items to the left
   overflow: hidden;
   list-style-type: none;
   a {
@@ -74,8 +107,10 @@ const RightNav = styled.div`
     display: flex;
     flex-direction: row;
     height: auto;
+    align-items: center; // Reset alignment to center for larger screens
   }
 `;
+
 
 const StyledDiv = styled.div`
   font-size: 20px;

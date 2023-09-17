@@ -5,9 +5,8 @@ import Image from "next/image";
 
 export default function CaseCard({ study }) {
   const { title, slug, time, thumbnail } = study.fields;
-  const scaledWidth = thumbnail.fields.file.details.image.width * 0.35;  // 50% reduction
-  const scaledHeight = thumbnail.fields.file.details.image.height * 0.35; // 50% reduction
-  
+  const scaledWidth = thumbnail.fields.file.details.image.width * 0.35;  
+  const scaledHeight = thumbnail.fields.file.details.image.height * 0.35; 
   return (
     <div className="card">
       <div className="featured">
@@ -37,6 +36,10 @@ export default function CaseCard({ study }) {
         @media (max-width: 768px) {
           .card {
             margin: 10px auto;
+          }
+          .card-container {
+            padding-left: 50px;
+            padding-right: 50px;
           }
         }
 
