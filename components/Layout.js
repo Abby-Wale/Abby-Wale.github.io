@@ -19,7 +19,7 @@ export default function Layout({ children }) {
       </div>
 
       <Footer>
-        <Footer1>
+       
           <SocialIcon href="https://github.com/Abby-Wale" target="_blank" rel="noopener noreferrer">
             <FaGithub color="#fff" />
           </SocialIcon>
@@ -32,7 +32,7 @@ export default function Layout({ children }) {
           <SocialIcon href="https://wa.me/447405263938" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp color="#fff" />
           </SocialIcon>
-        </Footer1>
+    
       </Footer>
 
       <style jsx>{`
@@ -62,8 +62,9 @@ export default function Layout({ children }) {
 
 export const Footer = styled.div`
   display: flex;
-  flex-direction: column;
-  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 20px 0;
   a {
     text-decoration: none;
