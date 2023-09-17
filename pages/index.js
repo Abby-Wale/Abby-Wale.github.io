@@ -19,6 +19,7 @@ export async function getStaticProps() {
   }
 }
 
+
 export default function Recipes({ studies }) {
   return (
     <div className="recipe-list">
@@ -28,11 +29,38 @@ export default function Recipes({ studies }) {
 
       <style jsx>{`
         .recipe-list {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-gap: 20px 60px;
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .recipe-list > * {
+          flex-basis: 50%;
+        }
+
+        @media (max-width: 768px) {
+          .recipe-list > * {
+            flex-basis: 100%;
+          }
         }
       `}</style>
     </div>
   );
 }
+
+// export default function Recipes({ studies }) {
+//   return (
+//     <div className="recipe-list">
+//       {studies.map((study) => (
+//         <CaseCard key={study.sys.id} study={study} />
+//       ))}
+
+//       <style jsx>{`
+//         .recipe-list {
+//           display: grid;
+//           grid-template-columns: 1fr 1fr;
+//           grid-gap: 20px 60px;
+//         }
+//       `}</style>
+//     </div>
+//   );
+// }

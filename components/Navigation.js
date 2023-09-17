@@ -88,6 +88,7 @@ const StyledDiv = styled.div`
   text-decoration: none;
   cursor: pointer;
   color: #064734;
+  border-bottom: none;
   @media (min-width: 800px) {
     :hover {
       padding-left: 0;

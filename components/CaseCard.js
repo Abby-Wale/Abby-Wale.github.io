@@ -31,39 +31,48 @@ export default function CaseCard({ study }) {
       <style jsx>{`
         .card {
           transform: rotateZ(-2deg);
-          width: 100%;  // 50% reduction
-          margin: 10px 0;  // Center the card and reduce margin
+          margin: 10px auto;
         }
+
         @media (max-width: 768px) {
           .card {
-            width: 100%;  // Single column on smaller screens
-            margin: 10px 0;
+            margin: 10px auto;
           }
         }
+
+        .card-container {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
         .content {
           background: #fff;
           box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
-          margin: 15px 0;  // 50% reduction
+          margin: 15px 0;
           position: relative;
-          top: -15px;  // 50% reduction
-          left: -3.75px;  // 50% reduction
+          top: -15px;
+          left: -3.75px;
         }
+
         .info {
-          padding: 1.875px;  // 50% reduction
+          padding: 1.875px;
         }
+
         .info h4 {
-          margin: 0.75px 0;  // 50% reduction
+          margin: 0.75px 0;
           text-transform: uppercase;
         }
+
         .actions {
-          margin-top: 3.75px;  // 50% reduction
+          margin-top: 3.75px;
           display: flex;
           justify-content: flex-end;
         }
+
         .actions a {
           color: #fff;
           background: #f01b29;
-          padding: 6px 9px;  // 50% reduction
+          padding: 6px 9px;
           text-decoration: none;
         }
       `}</style>
